@@ -2,7 +2,7 @@ import React from 'react'
 import useFetch from '../hooks/useFetch'
 
 export default function Portfolio() {
-    const { loading, error, data } = useFetch('http://localhost:1337/api/products?populate=%2A')
+    const { loading, error, data } = useFetch('http://192.168.88.240:1337/api/products?populate=%2A')
 
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error... :(</p>
@@ -13,7 +13,7 @@ export default function Portfolio() {
             <div className="grid">
                 {data.data.map(product => (
                     <div key={product.id} className="product-card">
-                        <img src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`} alt={product.attributes.name}></img>
+                        <img src={`http://192.168.88.240:1337${product.attributes.image.data.attributes.formats.medium.url}`} alt={product.attributes.name}></img>
                         <p className='product-title'>{product.attributes.name}</p>
                     </div>
                 ))}
